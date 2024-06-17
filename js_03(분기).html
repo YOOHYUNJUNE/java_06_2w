@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript_03</title>
+</head>
+<script>
+    // 프로그램 흐름 제어
+    // 분기: if, switch case
+    // 반복: while, for
+
+    // if( bool ) {
+    //     bool = true일 때 처리되는 블록
+    // }
+    if(true) {
+        // alert('if(true)')
+        console.log('true일 때 실행 1')
+    }
+    if(false) {
+        // alert('if(false)')
+        console.log('true일 때 실행 2')
+    }
+
+    // 현재 시각에서 오전, 오후 구분
+    const date = new Date()
+    if(date.getHours() >= 12) {
+        console.log('오후')
+    } else { // date.getHours() < 12
+        console.log('오전')
+    }
+    
+    // 학점 (B: score >= 80 && score < 90)
+    let score = 100
+    if(score >= 90) {
+        console.log('A')
+    } else if (score >= 80) {
+        console.log('B')
+    } else if (score >= 70) {
+        console.log('C')
+    } else if (score >= 60) {
+        console.log('D')
+    } else { // score < 60
+        console.log('F')
+    }
+    
+    // 사용자로부터 값을 입력 받아서, 하이로우 게임: 1 ~ 100에서 임의 숫자(40) 정함 -> 20: '하이' -> 50: '로우'
+    let user_number = 50
+    const random_number = Math.random() // 0 ~ 1 랜덤 실수
+    // console.log(random_number)
+    const real_number = Math.floor(random_number * 100) + 1 // 소수점 절삭
+    // console.log(real_number)
+    if(user_number > real_number) {
+        console.log('high!')
+    } else if (user_number < real_number) {
+        console.log('row~')
+    } else if (user_number = real_number) {
+        console.log('정답!', real_number)
+    }
+
+    // 사용자로부터 값을 입력 받아서, 홀수, 짝수 판단하는 프로그램 / num % 2 = 0(짝수), 1(홀수)
+    let user_number2 = prompt('숫자를 입력하세요.')
+    let number = Number(user_number2)
+
+    if(isNaN(number)) {
+        alert("숫자만 입력하세요.")
+    } else if (user_number2 % 2 == 0) {
+        console.log('짝수')
+    } else {
+        console.log('홀수')
+    }
+
+
+
+
+</script>
+<body>
+    
+</body>
+</html>

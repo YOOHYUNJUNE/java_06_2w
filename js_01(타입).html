@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript_01</title>
+    <style>
+        body {
+            background-color: #222;
+            color: white;
+        }
+    </style>
+
+    <!-- script 태그 안에서, 또는 .js 파일에서 사용가능 -->
+    <script>
+        // alert('Hello World!')    // 한줄 주석
+        /* alert(111)               /* 블록 주석
+        alert(222) */
+
+        // ;(세미콜론 생략 가능)
+        console.log('나는\t손흥민입니다.') // \t: tap만큼 띄움
+        console.log('나는\n손흥민입니다.') // \n: 줄바꿈
+        console.log('나는 \\손흥민입니다.') // 경로 만들기
+        
+        // '안녕' + "하세요" = '안녕하세요'
+        // '안녕하세요 저는 ' + uname + '입니다.'
+        // '안녕하세요'[0] = '안'
+        // '안녕하세요...'.length = 8
+
+        // 타입 확인: typeof(값)
+        console.log(typeof(typeof(100)))
+        console.log(typeof(100))
+        console.log(typeof(true))
+        console.log(typeof(num1)) // num1: 식별자 / undefined: 변수 선언하지 않았음 or 변수 선언O, 값을 넣지 않음
+        
+        // 함수 선언
+        function plus(){
+            console.log("더하기 함수")
+        }
+        console.log('function plus:', typeof(plus)) // function 타입(일급 객체)
+        console.log('{}:', typeof({})) // object 타입 
+        console.log('[]:', typeof([])) // object 타입: 객체묶음(변수 + 함수)
+
+        // `` (백틱): `${식별자, 연산, 함수호출}`
+        var name = '손흥민'
+        console.log('안녕하세요. 저는 ' + name + '입니다.')
+        console.log(`안녕하세요. 저는 ${name}입니다.`)
+
+        var label = "Naver"
+        var href_str = "https://www.naver.com"
+        console.log(`<a href="${href_str}">${label}</a>`)
+        
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
