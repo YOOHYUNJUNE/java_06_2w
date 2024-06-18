@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function_02</title>
+    <script>
+        // 매개변수: 함수 호출시 받는 값을 저장하는 변수
+        // 가변 매개변수: 호출시 매개변수 개수가 가변일 때 사용
+
+        function test1(...items) { // ...items: 가변 매개변수
+            console.log(items)
+        }
+        test1(143,2432)
+        test1(3,4)
+        test1(1432,4232,42133,421344,52355,626,7727,1184,943)
+
+        
+        // 전달되는 값들 중 가장 큰 수 반환
+        a = Math.floor(Math.random()*1000)
+        b = Math.floor(Math.random()*1000)
+        c = Math.floor(Math.random()*1000)
+        d = Math.floor(Math.random()*1000)
+        e = Math.floor(Math.random()*1000)
+        function num_max(...nums) {
+            let maxnum = nums[0]
+            for (num of nums) {
+                if (num > maxnum) {
+                    maxnum = num
+                }
+            }
+            return maxnum
+        }
+        console.log(a,b,c,d,e, "MAX:", num_max(a,b,c,d,e))
+        
+
+        // 기본 매개변수
+        function test3(name, age=19, gender) {
+            gender = gender || 'M'
+            console.log(name)
+            console.log(age)
+            console.log(gender)
+        }
+        test3(1)
+
+
+        // 시급, 시간으로 급여 계산
+        function earnings(name, wage, hours) {
+            wage = wage || 9850
+            hours = hours || 40
+            time = hours * 4
+            earning = wage * time
+            console.log(name)
+            console.log('월급여:', earning, '원')
+        }
+        earnings('철수')
+        earnings('민수', 20000, 52)
+        earnings('영희', 10000)
+
+
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
