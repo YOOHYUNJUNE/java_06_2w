@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object</title>
+    <script>
+        // 기본 자료형 객체 선언( 생성 ): 숫자, 문자열, 논리값
+        // Number(), String(), Boolean() : 생성함수, 클래스
+        
+        // new String('문자열') / 빈번: substring, trim
+        let obj_string = new String('      1234 안 녕 하 세 요...      ')
+        console.log(obj_string.concat(' 반갑습니다.'))
+        console.log(obj_string, obj_string.length) // 공백 포함
+        console.log(obj_string.trim(), obj_string.trim().length) // 양 옆 공백 제거
+
+        let obj_phoneNumber = new String('010-9999-7777')
+        console.log(obj_phoneNumber.split('-')) // 특정 문자 제거후 분리
+        console.log(obj_phoneNumber.replaceAll('-', '.')) // 변경대상,변경후
+
+        console.log('========================================================================================')
+
+        const obj_num = new Number(1111.12345)
+        console.log(obj_num, obj_num.toString()) // str로 타입 변경
+        console.log(obj_num.toFixed(0)) // 소수점 n자리까지
+
+
+        // isNaN(): NaN 판별 / isFinite(): 무한대 수 판별
+
+
+        let priNum = 1000
+        console.log(priNum.toString()) // .priNum: 객체 형식으로 저장
+
+
+        // 논리값
+        new Boolean(true)
+
+        console.log('========================================================================================')
+
+        // 배열: new Array() = []
+        //      new Array(1,2,3,4,5) = [1,2,3,4,5]
+        let arr1 = [1,2,3,4,5]
+        console.log(arr1)
+        let arr2 = new Array()
+        console.log(arr2)
+        let arr3 = new Array(10) // [ampty * 10], length = 10
+        console.log(arr3)
+        let arr4 = new Array(1,2,3,4,5)
+        console.log(arr4)
+
+
+        
+        // {}: 속성, 메서드, 속성이름 : 속성값(js에서 사용하는 값)
+        // new String(), new Number(), new Boolean(), new Array(), new Date()
+
+        
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

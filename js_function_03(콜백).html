@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function_03</title>
+</head>
+    <script>
+        // 콜백 함수: 함수의 매개변수로 전달되는 함수
+        // 동기화: 함수의 모든 기능 수행까지 대기후 실행 <-> 비동기(JavaScript): 웹기반 통신(Rest api), promise
+        
+        function callTenTimes(callback) {
+            // collback = function(){}
+            for (let i=0; i<10; i++) {
+                callback(i)
+            }
+        }
+        callTenTimes(function(i){
+            console.log(`${i}번째 함수 호출`)
+        })
+        
+        const cfn1 = function(val, idx, temp) {
+            return val % 10 * 100
+        }
+        const cfn2 = function(num) {
+            return num % 2 == 0
+        }
+      
+
+        let arr = [11,22,33,44,55,66,77,88,99]
+        arr.forEach(
+            function(val, idx) {
+                console.log(val, idx) // for문 비슷
+            }
+        )
+        const callBackFn = function(index, val) {
+            console.log(val, index)
+        }
+        arr.forEach(callBackFn)
+        let arr1 = arr.map(
+            // function(val, index, temp) {
+            //     return val % 10 * 100
+            // }
+            cfn1
+        )
+        console.log(arr1)
+        
+        let arr2 = arr.filter(
+            // function (num) {
+            //     return num % 2 == 0
+            // }
+            cfn2
+        )
+        console.log(arr2)
+
+
+    </script>
+<body>
+    
+</body>
+</html>

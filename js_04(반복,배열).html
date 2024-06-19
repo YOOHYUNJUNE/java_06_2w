@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript_04</title>
+</head>
+<script>
+    // 배열(arr): 변수들의 묶음, 0번째~
+    abc = ['A','B','C','D','E','F','G','H','I','J'] // arr[index]
+    random = Math.floor(Math.random() * 10)
+    console.log(abc[random], random)
+    console.log(typeof(abc), abc)
+
+    abc2 = [100, 'str', false, function(){}, {}, []]
+    console.log(abc2)
+
+    
+    // 배열 컨트롤: 참조(접근), 개수, 요수 추가,삭제
+    arr3 = [1, 2, 3, 4, 5]
+    console.log(arr3[0], arr3[arr3.length-1], arr3.length)
+    
+
+    // 배열 요소 추가: 배열.push() : 마지막 index 다음에 추가
+    arr3.push(6, 7, 8, 9, 100, 111, 222, 333)
+    console.log(arr3, arr3.length)
+
+
+    // 배열 요소 삭제: 배열.splice(index, 삭제하려만 요소 개수)
+    console.log(arr3.splice(2, 2)) // 갱신되는 듯?
+    console.log(arr3.slice(0, 5))
+    console.log(arr3)
+
+    // for 반복문
+    for(let i = 0; i < 5; i++) {
+        console.log(i)
+    }
+    // for(let i = 0; i < 5; i++) {
+    //     console.log(arr3[i])
+    // }
+    
+    // console.log(arr3[100]) // undefined
+    // for(let i = 0; i < arr3.length; i++) {
+    //     console.log(i)
+    // }
+
+    // for in: 모든 요소를 참조하여 'item'에 순서 부여
+    for(const item in arr3) {
+        console.log(item)
+    }
+    console.log('==========================================================================================')
+
+    // for of: 그대로 가져옴
+    for (let item of arr3) {
+        console.log(item)
+    }
+
+    console.log('==========================================================================================')
+
+    // while (반복 조건 bool) {}
+    let num = 0
+    while(num < 5) {
+        console.log(num)
+        num++ // 무한루프 방지를 위해 반드시 조건 추가
+    }
+
+    console.log('==========================================================================================')
+
+    // 1부터 더해가면서 합이 100이 넘어갈 때, 마지막 입력값
+    let sum = 0
+    let n = 1
+    while(true) {
+        sum += n
+        if(sum >= 100) {
+            break
+        }
+        n++
+        console.log(n, sum)
+    }
+    console.log(sum)
+
+    console.log('==========================================================================================')
+
+    // 1~10 중 짝수만 출력
+    n = 0
+    while(n <= 10) {
+        n++
+        if(n % 2 == 1) {
+            continue // 위로 올라가서 반복
+        }
+        console.log(n)
+    }
+
+    console.log('==========================================================================================')
+
+
+
+</script>
+
+
+<body>
+
+
+</body>
+</html>

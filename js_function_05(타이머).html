@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timer_function</title>
+    <script>
+        // 타이머 함수
+        // setinterval(callbackFn, ms) // 간격(ms)을 두고 ID(숫자) 반환
+        // clearinterval(타이머 ID)
+        // setTimeout(callbackFn, ms) // ID 반환
+        // clearTimeout(타이머 ID)
+
+        // n초 후 메시지 출력
+        let id1 = setTimeout(
+            () => console.log('3초 후 출력되는 메시지'),
+            3000 // 자원 상황에 따라 100% 정확하지는 않음
+        )
+
+        // n초마다 반복 출력
+        let n = 0
+        let id2 = setInterval(
+            () => {
+                console.log('2초마다 출력되는 메시지' + n++) // 실행
+                if(n == 10) { // 종료
+                    console.log('10번 반복 후 종료')
+                    clearInterval(id2) // 생략시 무한 반복
+                }
+            }, 2000 // 반복 주기
+        )
+
+
+    </script>
+    <script>
+        // 함수 선언, 호출이 후순위인 script
+    </script>
+
+
+
+
+
+
+</head>
+<body>
+    
+</body>
+</html>

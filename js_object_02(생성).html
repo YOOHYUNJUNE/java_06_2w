@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object_01</title>
+    <script>
+        // 객체 표현 => {} object
+        // 객체 : 속성, 함수(메소드)를 포함
+        // 변수, 함수(메소드)들을 구성
+        
+        const menu1 = {
+            productName : 'Americano', // 속성 구분: , productName: key
+            price : 3000,
+            category : 'Coffee'
+        }
+
+
+        console.log(menu1)
+        // console.log('제품 이름:', menu1['productName'])
+        console.log('제품 이름:', menu1.productName)
+
+
+        // 객체의 속성은 변수처럼, 모든 타입의 자료형을 가질 수 있음(배열, 함수, 객체 내 객체...)
+        const menu2 = {
+            productName : 'Americano',
+            price : 3000,
+            category : 'Coffee',
+            makeCoffee : function() { // 객체 내 함수: 메소드
+                console.log('원두 20g과 뜨거운 물 120ml')
+            }
+        }
+        // 메소드 호출
+        menu2.makeCoffee()
+        
+
+        // 객체 자신의 멤버 참조 / this: 객체 자신을 가리키는 변수(화살표 함수 사용 불가)
+        const menu3 = {
+            productName : 'Americano',
+            price : 3000,
+            category : 'Coffee',
+            makeCoffee : function() { // 객체 내 함수: 메소드
+                console.log(`${this.category}은(는) 원두 20g과 뜨거운 물 120ml을 베이스로 합니다.`)
+            }
+        }
+        menu3.makeCoffee()
+
+
+        // 객체의 속성을 동적으로 추가 / 객체.속성 = 내용
+        menu3.event = false
+        console.log(menu3)
+        if(menu3.event) {
+            // alert('이벤트 상품입니다.')
+        } else {
+            // alert('이벤트 미대상입니다.')
+        }
+
+        
+        // 속성 제거 / delete 객체.속성
+        delete menu3.event
+        console.log(menu3)
+
+
+        // 객체 정의 시, 1.데이터만 가지는 객체, 2.데이터와 기능을 함께 가지는 객체
+        let cart = []
+        cart.push({pname: 'AAAA', price: 1000, point: 10})
+        let menus = [
+            {pname: 'AAAA', price: 1000, point: 1},
+            {pname: 'BBBB', price: 2000, point: 2},
+            {pname: 'CCCC', price: 3000, point: 3},
+            {pname: 'DDDD', price: 4000, point: 4},
+            {pname: 'EEEE', price: 5000, point: 5}
+        ]
+        menus.forEach((val) => {console.log(val)})
+        console.log(cart)
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

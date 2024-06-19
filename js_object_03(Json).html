@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Json</title>
+    <script>
+        // JSON: ""쌍따옴표만 사용
+        // Rest api: json 형식으로 받음
+        // object <-> json
+
+        let menu = {
+            productName : 'americano',
+            price : 3000,
+            category : 'coffee'
+        }
+        console.log(menu, typeof(menu))
+
+        // stringify: object -> json
+        let json_string = JSON.stringify(menu) 
+        console.log(json_string, "타입:", typeof(json_string))
+
+        // parse: json -> object
+        let obj_json = JSON.parse(json_string)
+        console.log(obj_json, "타입:", typeof(obj_json))
+        
+        // 메뉴판
+        let menus = [
+            {name : '아메리카노', price : 3000},
+            {name : '홍차', price : 4000},
+            {name : '밀크티', price : 5000}
+        ]
+        let menus_json = JSON.stringify(menus) // []배열 형식으로 json 생성됨
+        console.log(menus_json, typeof(menus_json))
+        console.log(JSON.parse(menus_json), typeof(JSON.parse(menus_json))) 
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

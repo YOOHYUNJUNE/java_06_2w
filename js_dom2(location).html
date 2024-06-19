@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location</title>
+    <script>
+
+        // 브라우저 주소창
+        console.log('check >>', location.href)
+        function gotoNaver() {
+            location.href='https://www.naver.com'
+        }
+
+        // 고전 방식: 브라우저 모든 기능(</html>까지 모두)을 실행 후 마지막에 실행하는 함수
+        window.onload = function() {
+            console.log('on load: 페이지 로드 완료')
+        }
+
+
+        // 이벤트 연결
+        document.addEventListener("DOMContentLoaded",function() {
+            console.log('문서객체를 모두 읽고 나면 이벤트가 발생 후, 콜백 함수 실행')
+            let h1_el = document.getElementById('h1')
+            console.log(h1_el.innerHTML)     
+
+            // 캐스팅: 문서 객체 생성
+            // querySelector: css 선택자를 이용해 캐스팅
+            const div_el = document.querySelector('div')
+
+            // text, color, padding, margin, font-size 등 변경
+            div_el.textContent = 'HEADER' // "test"를 "HEADER"로 변경
+            div_el.style.backgroundColor = 'yellow'
+            div_el.style.color = 'orangered'
+            div_el.style.padding = '20px'
+            div_el.style.fontSize = '32px'
+
+            // 여러개의 속성 캐스팅
+            const h3s = document.querySelectorAll('h3')
+            console.log(h3s) // nodeList (배열) 형식
+
+            h3s.forEach((item, index) => {
+                // item.textContent = item.textContent + index
+                item.innerHTML = item.innerHTML + `<i>${index}</i>`
+                item.style.color = 'orangered'
+           })
+
+           // 속성 컨트롤
+           const a_el = document.querySelector('a')
+           let href_str = a_el.getAttribute('href')
+           console.log('href>>', href_str)
+           a_el.setAttribute('href', 'https://github.com') // 주소 변경
+
+
+        })
+
+
+
+
+    </script>
+</head>
+<body>
+
+    <!-- 속성 컨트롤 -->
+    <a href="https://www.naver.com">NAVER</a>
+
+    <!-- 캐스팅: 스타일 변경 -->
+    <h3>header - 9</h3>
+    <h3>header - 9</h3>
+    <h3>header - 9</h3>
+
+    <!-- 주소 이동을 하는 클릭 함수 적용 -->
+    <h1 id='h1' onclick="gotoNaver()"><span>페이지 이동</span></h1>
+    
+    <!-- 캐스팅: 문서 객체 생성-->
+    <div><span>test</span></div>
+
+
+</body>
+</html>

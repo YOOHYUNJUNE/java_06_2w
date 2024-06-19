@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript_function</title>
+    <script>
+
+        // 화살표 함수: function키워드 생략
+        // 콜백함수를 매개변수로 사용할 때 유용
+        function getValue(value) {
+            return value % 2 == 1
+        }
+        const fn = (value) => {
+            return value % 2 == 1
+        }
+        console.log(fn(3))
+
+        let numbers = [1,2,3,4,5]
+        // .filter .map: 배열로 반환
+        numbers.filter( val => {
+                return val % 2 ==1 // [1,3,5] 배열
+            }
+        ).map(
+            (val) => val * val
+            // {return val * val}
+        ).forEach(
+            val => console.log(val)
+        )
+
+
+        // eval()
+        let codeRun = `
+            var num11 = 1111;
+            alert(num11)
+        `
+        eval(codeRun)
+
+        
+        // 타임 함수
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

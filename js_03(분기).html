@@ -44,31 +44,117 @@
         console.log('F')
     }
     
+    
+    // // 사용자로부터 값을 입력 받아서, 홀수, 짝수 판단하는 프로그램 / num % 2 = 0(짝수), 1(홀수)
+    // let user_number2 = prompt('숫자를 입력하세요.')
+    // let number2 = Number(user_number2)
+
+    // if(isNaN(number2)) {
+    //     alert("숫자만 입력하세요.")
+    // } else if (user_number2 % 2 == 0) {
+    //     console.log('짝수')
+    // } else {
+    //     console.log('홀수')
+    // }
+
+    // if(confirm('삭제하시겠습니까?')) {
+    //     alert('삭제되었습니다.')
+    // }
+
     // 사용자로부터 값을 입력 받아서, 하이로우 게임: 1 ~ 100에서 임의 숫자(40) 정함 -> 20: '하이' -> 50: '로우'
-    let user_number = 50
+    let user_number = prompt('숫자를 입력하세요.')
     const random_number = Math.random() // 0 ~ 1 랜덤 실수
     // console.log(random_number)
     const real_number = Math.floor(random_number * 100) + 1 // 소수점 절삭
     // console.log(real_number)
-    if(user_number > real_number) {
-        console.log('high!')
+    if(isNaN(Number(user_number))) {
+        alert("숫자만 입력하세요.")
     } else if (user_number < real_number) {
-        console.log('row~')
+        console.log(`[ high~ ] 입력 숫자: [${user_number}] < 정답 숫자: [${real_number}]`)
+    } else if (user_number > real_number) {
+        console.log(`[ row~ ] 입력 숫자: [${user_number}] > 정답 숫자: [${real_number}]`)
     } else if (user_number = real_number) {
         console.log('정답!', real_number)
     }
 
-    // 사용자로부터 값을 입력 받아서, 홀수, 짝수 판단하는 프로그램 / num % 2 = 0(짝수), 1(홀수)
-    let user_number2 = prompt('숫자를 입력하세요.')
-    let number = Number(user_number2)
 
-    if(isNaN(number)) {
-        alert("숫자만 입력하세요.")
-    } else if (user_number2 % 2 == 0) {
-        console.log('짝수')
-    } else {
-        console.log('홀수')
+
+
+
+    /*
+    switch ( 값 ) {
+        case 조건 값 1:
+            처리구문
+            break
+        case 조건 값 2:
+            처리구문
+            break
+        default:
+            처리구문
     }
+    */
+
+    // 등급 판단: 0, 1, 2, 3
+    // let grade = 3
+    // let grade = Math.floor(Math.random() * 10)
+    // console.log(grade)
+    // switch(grade) {
+    //     case 0 :
+    //         alert('안녕하세요! 회원가입을 해주세요.')
+    //         break
+    //     case 1 :
+    //         alert('회원님, 반갑습니다!')
+    //         break
+    //     case 2 :
+    //         alert('처리해야할 메시지가 존재합니다.')
+    //         break
+    //     case 3 :
+    //         alert('관리자님, 반갑습니다.')
+    //         break
+    //     default:
+    //         alert('잘못된 요청입니다.')
+    // }
+
+    // switch(grade) {
+    //     case 3 :
+    //         console.log('관리자를 등록할 수 있습니다.')
+    //     case 2 :
+    //         console.log('게시판을 관리합니다.')
+    //     case 1 :
+    //         console.log('게시판에 글을 작성할 수 있습니다.')
+    //     case 0 :
+    //         console.log('게시판 글을 읽을 수 있습니다.')
+    // }
+
+    // score2 = Math.random() * 100
+    // switch(Math.floor(score2/10)) {
+    //     case 10: case 9:
+    //         alert(`A, ${Math.floor(score2)}점`)
+    //         break
+    //     case 8:
+    //         alert(`B, ${Math.floor(score2)}점`)
+    //         break
+    //     case 7:
+    //         alert(`C, ${Math.floor(score2)}점`)
+    //     break
+    //     case 6:
+    //         alert(`D, ${Math.floor(score2)}점`)
+    //     break
+    //     default:
+    //      alert(`F, ${Math.floor(score2)}점`)
+    // }
+
+
+    // 삼항 연산자: 논리값 ? true일때 값 : false일때 값
+    // 짝,홀수 판단
+    let num_1 = Math.floor(Math.random() * 10)
+    let check = num_1 % 2 == 0 ? '짝수' : '홀수'
+    alert(`${num_1}, ${check}`)
+
+    // 논리값 || 논리값이 false일때 실행
+    let num_2
+    let num_3 = num_2 || !3
+    console.log(num_3)
 
 
 

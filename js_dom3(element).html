@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>element</title>
+
+    <style>
+        #wrap {
+            display: flex;
+        }
+        .box {
+            border: 1px solid #222;
+            width: 150px;
+            height:  150px;
+        }
+    </style>
+
+    <script>
+        // json 메뉴 만들기
+        let menus = [
+            {name : '아메리카노', price : 3000},
+            {name : '홍차', price : 4000},
+            {name : '홍차', price : 4000},
+            {name : '홍차', price : 4000},
+            {name : '홍차', price : 4000},
+            {name : '홍차', price : 4000},
+            {name : '홍차', price : 4000},
+            {name : '밀크티', price : 5000}
+        ]
+
+        // 새 요소 생성
+        document.addEventListener('DOMContentLoaded', () => {
+
+        //     // 1. 타깃(새로운 위치) 요소 캐스팅
+        //     const wrap = document.querySelector('#wrap')
+        //     // 2. 새 요소 객체 생성(속성, 스타일 등)
+        //     const newEl = document.createElement('h2')
+        //     newEl.textContent = '동적으로 생성한 H2 tag'
+        //     newEl.style.textAlign = 'center'
+        //     newEl.style.color = 'blue'
+        //     newEl.style.backgroundColor = 'yellow'
+        //     // 3. 타깃에 새 요소 추가(appendChild)
+        //     wrap.appendChild(newEl)
+
+
+        // // 이미지 태그
+        //     const newImg = document.createElement('img')
+        //     newImg.setAttribute('src', '/image/button.png')
+        //     wrap.appendChild(newImg)
+        
+            
+            // menus를 반복해서 apeendChild
+            menus.forEach((item, index) => {
+                // div > h3(상품명), p(가격) 
+                const newDiv = document.createElement('div')
+                newDiv.setAttribute('class', 'box') // <div class='box'>
+
+                const newh3 = document.createElement('h3')
+                newh3.textContent = item.name
+                newDiv.appendChild(newh3)
+
+                const newp = document.createElement('p')
+                newp.textContent = `${item.price} 원`
+                newDiv.appendChild(newp)
+
+                wrap.appendChild(newDiv)
+            })
+
+
+        })
+
+    </script>
+</head>
+<body>
+
+    <h3>Title</h3>
+    <div id="wrap"></div>
+    
+</body>
+</html>

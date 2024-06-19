@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+    <script>
+        // 함수: 특정 목적 수행을 위한 코드 집합 / data를 받아서 처리(매개변수 처리), 처리 결과 반환(return 값): void(반환값 없음)
+
+        // fn1() // 변수(함수) 선언 이전에 실행가능
+        function fn1(age) {
+            alert('안녕하세요')
+        }
+        // fn1() // 호출
+        
+        function fn2(uname) {
+            alert('안녕하세요! ' + uname + '입니다.')
+        }
+        // fn2('손흥민') // fn2() : 함수 호출 / uname: data
+
+        // 나이를 입력하여 성인 여부 출력
+        function check_age(age) {
+            if(age>=19) {
+                alert('성인입니다.')
+            } else {
+                alert('미성년자입니다.')
+            }
+        }
+        // random_age = Math.floor(Math.random()*100)
+        // check_age(random_age)
+        // console.log(random_age)
+
+
+        // 출생년도로 성인 여부 판단(true, false)
+        function check_age2(age) {
+            // let result = false
+            // if (age >= 19) {
+            //     result = true
+            // }
+            // return result
+            return age >= 19
+        }
+        let check = check_age2(30)
+        console.log(check)
+        
+        
+        // fn3() // ReferenceError
+        // 함수: 1급 객체 / 변수를 만들고 함수를 대입
+        const fn3 = function() {
+            alert('안녕하세요')
+        }
+        // fn3()
+
+        
+        // 숫자 2개를 받아 사칙 연산 결과 출력
+        function cals(num1, num2) {
+            console.log('더하기:', num1 + num2)
+            console.log('빼기:', num1 - num2)
+            console.log('곱하기:', num1 * num2)
+            console.log('나누기:', num1 / num2)
+            console.log('나머지:', num1 % num2)
+        }
+        num1 = Math.floor(Math.random()*10)
+        num2 = Math.floor(Math.random()*10)
+        console.log(num1, num2)
+        cals(num1, num2)
+
+        console.log('10' + '삼' - '삼') // NaN
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
