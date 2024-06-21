@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js_event_02</title>
+    <script>
+        // 키보드 이벤트: keydown(키 눌릴 때), keypress(키 입력 시), keyup(누른 후 뗄 때)
+        document.addEventListener('DOMContentLoaded', () => {
+            const textarea = document.querySelector('textarea')
+            // textarea에 작성시 글자 수 표기 제한
+            textarea.addEventListener('keyup', (event) => {
+                const str_len = event.currentTarget.value.length
+                const span_cnt = document.getElementById('cnt')
+                span_cnt.textContent = str_len
+                if(str_len > 100) {
+                    alert('100글자까지만 작성 가능합니다.') // 숨겨 놓고 나타나게 해보기
+                    // 제출버튼 만들기
+                }
+            })
+
+            
+            // select에서 선택한 option 출력
+            const select = document.querySelector('select')
+            const h2_print = document.querySelector('h2.print')
+            select.addEventListener('change', (event) => {
+                const option = event.currentTarget.options
+                const index = event.currentTarget.options.selectedIndex // selected되어있는 index
+                h2_print.textContent = `선택 항목: ${option[index].textContent}`
+            })
+
+        // 각 radio 버튼에 대한 결과 출력
+            const h3_output = document.getElementById('output')
+            const radios = document.querySelectorAll('[name=lang]')
+            // 모든 radio에 이벤트 연결
+            radios.forEach((radio) => {
+                radio.addEventListener('change', (event) => {
+                    const current = event.currentTarget
+                    if(current.checked) {
+                        h3_output.textContent = `선택한 언어: ${current.value}`
+                    }
+                })
+            }) 
+        })
+
+
+    </script>
+</head>
+<body>
+
+    <h3>관심있는 언어를 선택</h3>
+    <input type="radio" name="lang" value="JAVA" checked><span>JAVA</span>
+    <input type="radio" name="lang" value="HTML5"><span>HTML5</span>
+    <input type="radio" name="lang" value="javascript"><span>javascript</span>
+    <h3 id="output">선택한 언어: JAVA</h3>
+    <hr>
+
+
+    <h2 class="print"></h2>
+    <select>
+        <option>HTML5</option>
+        <option>CSS</option>
+        <option selected>javascript</option>
+        <option>Jquery</option>
+        <option>react.js</option>
+    </select>
+    <hr>
+    <!-- 글자 수 -->
+    <h1><span id="cnt">0</span> / 100</h1>
+    <textarea cols="20" rows="10"></textarea>
+
+    
+</body>
+</html>

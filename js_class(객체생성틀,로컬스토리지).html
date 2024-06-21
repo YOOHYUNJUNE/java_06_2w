@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js_class</title>
+    <script>
+        // 객체를 생성하기 위한 틀 -> new 틀: 틀에서 정의된 변수,함수로 이뤄진 객체 생성
+        // class 클래스 이름 { 변수, 함수 }: new 클래스이름()
+        
+        let obj_student1 = {
+            name : '손흥민',
+            sno : '240620', // 학번
+            major : '컴퓨터'
+        }
+        let obj_student2 = {
+            name : '손흥민',
+            sno : '240620',
+            major : '컴퓨터'
+        }
+        let obj_student3 = {
+            name : '손흥민',
+            sno : '240620',
+            major : '컴퓨터'
+        }
+
+        class Student {
+            constructor(name, sno, major) { // constructor : 생성자
+                this.name = name // this: 객체 자기 자신에 속성추가를 위한 함수
+                this.sno = sno
+                this.major = major
+            }
+        }
+
+        let student1 = new Student()
+        console.log(typeof(student1))
+
+        // students.push(new Student('son', '123456', 'computer'))
+        const students = [
+            new Student('son', '123456', 'computer'),
+            new Student('son', '123456', 'computer'),
+            new Student('son', '123456', 'computer')
+        ]
+        console.log(students)
+        
+        
+        // local storage
+        // .setItem: key, 값 저장 / key: string / value: string
+        // .getItem: (key, 값으로) 저장된 데이터 반환 / string | null
+        // .clear: 비우기
+        let saved_data = localStorage.getItem('members')
+        console.log('saved_data:', saved_data)
+        // if (saved_data == null) {
+            localStorage.setItem('members', 'members List')
+            // localStorage.removeItem('members')
+        // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

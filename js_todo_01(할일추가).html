@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO</title>
+    <script>
+
+        // 네이밍 규칙: _ 언더바(스네이크기법) / 대문자(커멜케이스)
+        document.addEventListener('DOMContentLoaded', () => {
+            const input_newTodo = document.querySelector('#newTodo') // input text창
+            const add_btn = document.querySelector('#addBtn') // button
+            const todo_list = document.querySelector('#todoList') // <hr>밑에 작성될 리스트
+
+            
+            // 카운트 변수: 만든 할 일에 번호를 부여
+            let keyCount = 0
+
+
+            // event 연결
+            add_btn.addEventListener('click', () => {
+                if(input_newTodo.value.trim() === '') {
+                    alert('할 일을 입력하세요.')
+                    return
+                }
+                // alert(input_newTodo.value.trim())
+
+                // div > checkbox, span, button
+                const div_new = document.createElement('div')
+                const key = keyCount++ // 할 일에 0부터 +1 하며 번호 부여
+                div_new.setAttribute('data-key', key)
+
+                // 박스에 체크시 이벤트
+                const checkbox = document.createElement('input')
+                checkbox.type = 'checkbox'
+                checkbox.addEventListener('change', (event) => {
+                    div_new.style.textDecoration = event.currentTarget.checked ? 'line-through' : '' // 박스에 체크 true일 때 사선 | 공백
+                    // if (event.currentTarget.checked) {
+                    //     div_new.style.textDecoration = 'line-through'
+                    // } else {
+                    //     div_new.style.textDecoration = '' 
+                    // }
+                })
+
+                const span_todostr = document.createElement('span')
+                span_todostr.textContent = input_newTodo.value // 사용자가 input에 입력한 value
+
+                // 버튼 누르면 할 일 삭제
+                const button_del = document.createElement('button')
+                button_del.textContent = '할 일 삭제'
+                button_del.addEventListener('click', (event) => {
+                    // 삭제 대상 div 찾기: key를 이용
+                    const div_del = document.querySelector(`[data-key="${key}"]`)
+                    todo_list.removeChild(div_del)
+                })
+
+                div_new.appendChild(checkbox)
+                div_new.appendChild(span_todostr)
+                div_new.appendChild(button_del)
+
+                todo_list.appendChild(div_new)
+
+                input_newTodo.value = '' // 작성 후 input 빈칸으로
+                // input_newTodo.focus() // 클릭된 상태
+            })
+        })
+
+
+    </script>
+</head>
+<body>
+    
+    <!-- 할 일 입력시 리스트에 추가 -->
+    <h1>Todo List</h1>
+    할 일 추가:
+    <input type="text" id="newTodo">
+    <button id="addBtn">할 일 추가</button>
+    <hr>
+    <div id="todoList"></div>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENT_01</title>
+    <script>
+        // 속성 삭제: 부모객체.removeChild(자식객체)
+        document.addEventListener('DOMContentLoaded', () => {
+            // 부모 객체 캐스팅
+
+            // 함수(delEl로 사용하고 주석)
+            // const div = document.querySelector('div')
+            // const h3 = document.querySelector('div>h3')
+            // div.removeChild(h3)
+        })
+
+        // const delBtn = document.querySelector('div>input[type=button]')
+        // delBtn.onclick = (event) => {
+        //     const div = document.querySelector('div')
+        //     const h3 = document.querySelector('div>h3')
+        //     div.removeChild(h3)
+        // }
+
+        delBtn.addEventListener('click', () => {
+            const div = document.querySelector('div')
+            const h3 = document.querySelector('div>h3')
+            div.removeChild(h3)
+        })
+        
+        function delEl() {
+            const div = document.querySelector('div')
+            const h3 = document.querySelector('div>h3')
+            div.removeChild(h3)
+        }
+  
+
+    </script>
+</head>
+<body>
+
+    <!-- [삭제] 버튼을 누르면 h3"삭제 대상"이 삭제 -->
+    <div>
+        <h3>삭제 대상</h3>
+        <p>내용을 설명합니다.</p>
+        <!-- <input type="button" onclick="delEl()" style="color: red;" value="삭제"> -->
+        <input type="button" onclick="delEl()" style="color: red;" value="삭제">
+
+    </div>
+
+    
+</body>
+</html>

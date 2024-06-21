@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 관리 프로그램</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        .noto {
+            font-family: "Noto Sans KR", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        #title {
+            color: blue;
+            padding: 30px;
+        }
+        main {
+            position: relative;
+            width: 1000px;
+            margin: 100px auto;
+        }
+        
+        /* td {
+            display: block;
+        } */
+
+
+
+    </style>
+
+
+
+    <script>
+        
+        // 빈 members 배열
+        let members = []        
+        if(localStorage.getItem('members')) {
+            members = JSON.parse(localStorage.getItem('members'))
+        } else {
+            localStorage.setItem('members', JSON.stringify(members))
+        }
+        console.log(members)
+
+
+
+        // 네이밍 규칙: _ 언더바(스네이크기법) / 대문자(커멜케이스)
+        document.addEventListener('DOMContentLoaded', () => {
+            const input_id = document.querySelector('#user_id') // input text창
+            const input_pw = document.querySelector('#user_pw') // input text창
+            const input_name = document.querySelector('#user_name') // input text창
+
+            const add_btn = document.querySelector('#addBtn') // button
+            const todo_list = document.querySelector('#todoList') // <hr>밑에 작성될 리스트
+
+            
+            // 카운트 변수: 만든 할 일에 번호를 부여
+            let keyCount = 0
+
+
+            // 버튼 클릭
+            add_btn.addEventListener('click', () => {
+                if(input_id.value.trim() === '') {
+                    alert('아이디를 입력해주세요.')
+                    return
+                }
+                if(input_pw.value.trim() === '') {
+                    alert('비밀번호를 입력해주세요.')
+                    return
+                }
+                if(input_name.value.trim() === '') {
+                    alert('이름을 입력해주세요.')
+                    return
+                }
+                // alert(input_id.value.trim())
+
+                // div > checkbox, span, button
+                const div_new = document.createElement('div')
+                const key = keyCount++ // 할 일에 0부터 +1 하며 번호 부여
+                div_new.setAttribute('data-key', key)
+
+                const span_id = document.createElement('span')
+                span_id.textContent = input_id.value // 사용자가 input에 입력한 value
+                const span_pw = document.createElement('span')
+                span_pw.textContent = input_pw.value
+                const span_name = document.createElement('span')
+                span_name.textContent = input_name.value
+
+                // 버튼 누르면 할 일 삭제
+                const button_del = document.createElement('button')
+                button_del.textContent = '할 일 삭제'
+                button_del.addEventListener('click', (event) => {
+                    // 삭제 대상 div 찾기: key를 이용
+                    const div_del = document.querySelector(`[data-key="${key}"]`)
+                    todo_list.removeChild(div_del)
+                })
+
+                // div_new.appendChild(checkbox)
+                div_new.appendChild(span_id)
+                div_new.appendChild(span_pw)
+                div_new.appendChild(span_name)
+
+                div_new.appendChild(button_del)
+
+                todo_list.appendChild(div_new)
+
+                // input_id.value = '아이디' // 작성 후 input 빈칸으로
+                // input_id.focus() // 클릭된 상태
+                
+                
+                // 유저 생성
+                members.push(new User(input_id.value, input_pw.value, input_name.value))
+                console.log(members)
+
+                // // json으로 변경
+                // let json_string = JSON.stringify(user)
+                // console.log(json_string)
+
+                
+                // // 로컬 스토리지로 회원 정보 보내기
+                // let local_data = localStorage.getItem('user_key')
+                localStorage.setItem('members', JSON.stringify(members))
+
+            })
+        })
+
+        // user 생성 class
+            class User {
+                    constructor(user_id, user_pw, user_name) {
+                        this.user_id = user_id,
+                        this.user_pw = user_pw,
+                        this.user_name = user_name
+                    }
+                }
+
+    </script>
+</head>
+<body>
+    <h1 id="title" class="noto">회원관리 프로그램</h1>
+<main>
+    <h1>회원 저장</h1>
+    <div id="user_save">
+        <table>
+            <tr>
+                <td>
+                    <label>아이디</label>
+                    <input type="text" id="user_id" placeholder="아이디">
+                </td>
+                <td>
+                    <label>비밀번호</label>
+                    <input type="text" id="user_pw" placeholder="비밀번호">
+                </td>
+                <td>
+                    <label>이름</label>
+                    <input type="text" id="user_name" placeholder="이름">
+                </td>
+                <td>
+                    <button id="addBtn">저장</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <hr>
+ 
+
+    <h1>회원 리스트</h1>
+    <hr>
+    <div id="회원 리스트">
+        
+
+
+        <div id="todoList">회원1</div>
+    </div>
+</main>
+</body>
+</html>

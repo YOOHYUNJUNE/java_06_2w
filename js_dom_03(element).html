@@ -52,22 +52,32 @@
             
             // menus를 반복해서 apeendChild
             menus.forEach((item, index) => {
-                // div > h3(상품명), p(가격) 
-                const newDiv = document.createElement('div')
-                newDiv.setAttribute('class', 'box') // <div class='box'>
+                // div > h3(상품명), p(가격)
 
-                const newh3 = document.createElement('h3')
-                newh3.textContent = item.name
-                newDiv.appendChild(newh3)
+                // const newDiv = document.createElement('div')
+                // newDiv.setAttribute('class', 'box') // <div class='box'>
 
-                const newp = document.createElement('p')
-                newp.textContent = `${item.price} 원`
-                newDiv.appendChild(newp)
+                // const newh3 = document.createElement('h3')
+                // newh3.textContent = item.name
+                // newDiv.appendChild(newh3)
 
-                wrap.appendChild(newDiv)
+                // const newp = document.createElement('p')
+                // newp.textContent = `${item.price} 원`
+                // newDiv.appendChild(newp)
+
+                // wrap.appendChild(newDiv)
+
+
+        // 이렇게도 할 수 있음
+                let newDiv = `
+                <div class="box">
+                    <h3>${item.name}</h3>
+                    <p>${item.price}</p>
+                </div>
+                `
+                wrap.innerHTML = wrap.innerHTML + newDiv
+
             })
-
-
         })
 
     </script>

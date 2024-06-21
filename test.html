@@ -3,25 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TEST</title>
+    <style>
+        main {
+            position: relative;
+            width: 400px;
+            margin: auto;
+        }
+        .float {
+            display: flex;
+            gap: 50px;
+        }
+        #제출 {
+            width: 200px;
+            height: 50px;
+            font-size: 30px;
+
+        }
+    </style>
 
     <script>
-
-
-
-    const numbers = [1, 2, 3, 4, 5];
-
-    numbers.forEach(function(number) {
-        console.log(number);
-    });
-
-
-    const fruits = ['apple', 'banana', 'cherry'];
-
-    fruits.forEach(function(fruit, index, array) {
-        console.log(`Index: ${index}, Fruit: ${fruit}, Array: ${array}`);
-    });
-
+        document.addEventListener('DOMContentLoaded', () => {
+            // 글자수 제한
+            const textarea = document.querySelector('textarea')
+            textarea.addEventListener('keyup', (event) => { // 누른 후 뗄 때 count
+                const str_len = event.currentTarget.value.length
+                const span_cnt = document.getElementById('count')
+                span_cnt.textContent = str_len
+                if(str_len > 1000) {
+                    alert('글자수 제한을 벗어났습니다.') // 숨겨놓고 나타나게 해보기
+                } // 제출버튼 만들기
+            })
+        })
+        
+        
 
 
 
@@ -33,6 +48,23 @@
 
 </head>
 <body>
+<main>
+    <h1>글 작성</h1>
+    <hr>
+    <h2>성별</h2>
     
+    <input type="radio" name="gender" value="남자" checked><span>남</span>
+    <input type="radio" name="gender" value="여자" checked><span>여</span>
+    <br><br>
+    <hr>
+
+    <h2>댓글 작성</h2>
+    <textarea cols="50" rows="20"></textarea>
+    <br>
+    <div class="float">
+    <input id="제출" type="button" value="제출">
+    <h3 id="count1000"><span id="count">0</span> / 1000 자</h3>
+    </div>
+</main>
 </body>
 </html>

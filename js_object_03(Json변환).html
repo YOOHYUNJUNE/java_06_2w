@@ -14,15 +14,15 @@
             price : 3000,
             category : 'coffee'
         }
-        console.log(menu, typeof(menu))
+        console.log('{}객체형식:', menu, typeof(menu))
 
         // stringify: object -> json
         let json_string = JSON.stringify(menu) 
-        console.log(json_string, "타입:", typeof(json_string))
+        console.log('객체를 json으로: ', json_string, "타입:", typeof(json_string))
 
         // parse: json -> object
         let obj_json = JSON.parse(json_string)
-        console.log(obj_json, "타입:", typeof(obj_json))
+        console.log('json을 객체로: ', obj_json, "타입:", typeof(obj_json))
         
         // 메뉴판
         let menus = [
@@ -31,8 +31,8 @@
             {name : '밀크티', price : 5000}
         ]
         let menus_json = JSON.stringify(menus) // []배열 형식으로 json 생성됨
-        console.log(menus_json, typeof(menus_json))
-        console.log(JSON.parse(menus_json), typeof(JSON.parse(menus_json))) 
+        console.log('[]배열형식:', menus_json, typeof(menus_json))
+        console.log('[]json을 객체로', JSON.parse(menus_json), typeof(JSON.parse(menus_json))) 
 
 
 
